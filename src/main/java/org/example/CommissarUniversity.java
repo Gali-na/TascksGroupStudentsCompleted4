@@ -1,8 +1,8 @@
 package org.example;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 
 public class CommissarUniversity implements MilitaryCommissar {
     public List<Student> listManAfter18(Group group) {

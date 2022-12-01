@@ -1,7 +1,4 @@
 package org.example;
-
-import org.example.Gender;
-
 import java.util.regex.Pattern;
 
 public class Human {
@@ -28,7 +25,7 @@ public class Human {
 
     public void setName(String name) {
         Pattern p = Pattern.compile("[A-Z]{1}[a-z]{1,12}");
-        if(p.matcher(name).matches()) {
+        if(name!=null && p.matcher(name).matches()) {
             this.name = name;
         } else {
             System.out.println("Name is incorrect");
