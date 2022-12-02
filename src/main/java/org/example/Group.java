@@ -12,6 +12,7 @@ public class Group {
     private static int numberStudents = 0;
 
     public Group() {
+
         studentList = new HashSet<Student>(10);
     }
 
@@ -20,21 +21,21 @@ public class Group {
     }
 
     public String getName() {
+
         return name;
     }
 
 
-
-    public static void setNumberStudents(int numberStudents) {
-        Group.numberStudents = numberStudents;
-    }
-
     public void setName(String name) {
-        this.name = name;
+        if (name != null) {
+            this.name = name;
+        } else {
+            System.out.println("Name is incorrect");
+        }
     }
 
     private boolean groupVerification() {
-        if(this.getName()!=null){
+        if (this.getName() != null) {
             return true;
         }
         return false;
@@ -46,8 +47,8 @@ public class Group {
                 && student.getName() != null
                 && student.getSurname() != null
                 && student.getGender() != null
-                &&(student.averageRating>1 )
-                &&( student.averageRating<=5)) {
+                && (student.averageRating > 1)
+                && (student.averageRating <= 5)) {
             return true;
         }
         return false;
@@ -55,19 +56,19 @@ public class Group {
 
     public String addStudent(Student student) {
         String rezult = "The student's details are incorrect, the student was not added to the group";
-         if (numberStudents == 10) {
+        if (numberStudents == 10) {
             rezult = "Group is full";
         }
         if (studentVerification(student) == true
-                && groupVerification()==true
-                && numberStudents <10) {
+                && groupVerification() == true
+                && numberStudents < 10) {
             studentList.add(student);
-          ++ numberStudents;
+            ++numberStudents;
             rezult = "Student successfully added";
         }
 
-        if(groupVerification()==false) {
-            rezult="Group created without naming, student cannot be added";
+        if (groupVerification() == false) {
+            rezult = "Group created without naming, student cannot be added";
         }
         return rezult;
     }
@@ -75,39 +76,40 @@ public class Group {
     public String removeStudent(Student student) {
         String rezult = "This student is not in the group";
         if (studentVerification(student) == true
-            && groupVerification()==true){
+                && groupVerification() == true) {
             Iterator<Student> iterator = this.studentList.iterator();
             while (iterator.hasNext()) {
-                if( iterator.next().equals(student)) {
+                if (iterator.next().equals(student)) {
                     iterator.remove();
+                    rezult = "Student successfully removed";
                 }
             }
-            rezult = "Student successfully removed";
         }
-        if( groupVerification()==false) {
-           rezult= "Group created without naming, student cannot be removd";
+        if (groupVerification() == false || studentVerification(student) == false) {
+            rezult = "Group created without naming, student cannot be removd";
         }
         return rezult;
     }
-    public ArrayList<Student> searchStudentBySurname (String surname){
+
+    public ArrayList<Student> searchStudentBySurname(String surname) {
         ArrayList<Student> students = new ArrayList<Student>();
-        Iterator<Student> iterator=this.studentList.iterator();
+        Iterator<Student> iterator = this.studentList.iterator();
         while (iterator.hasNext()) {
-           Student student1= iterator.next();
-           if(student1.getSurname().equals(surname)){
-               students.add(student1);
-           }
+            Student student1 = iterator.next();
+            if (student1.getSurname().equals(surname)) {
+                students.add(student1);
+            }
         }
         return students;
     }
 
     @Override
     public String toString() {
-        StringBuilder students= new StringBuilder();
-        Iterator<Student> iterator=this.studentList.iterator();
+        StringBuilder students = new StringBuilder();
+        Iterator<Student> iterator = this.studentList.iterator();
         while (iterator.hasNext()) {
             Student student1 = iterator.next();
-           students.append(student1.toString()+"\n");
+            students.append(student1.toString() + "\n");
         }
         return students.toString();
     }

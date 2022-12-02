@@ -21,6 +21,7 @@ class HumanTest {
 
     @Test
     void getAge() {
+
         assertEquals(18, createHuman().getAge());
     }
 

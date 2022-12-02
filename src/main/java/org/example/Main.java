@@ -48,7 +48,7 @@ public class Main {
         student6.setName("Sergey");
         student6.setAge(18);
         student6.setGender(Gender.MAN);
-        student4.setAverageRating(4);
+        student6.setAverageRating(4);
 
         Student student7 = new Student();
         student7.setSurname("Zolotarev");
@@ -62,23 +62,23 @@ public class Main {
         student8.setName("Andrey");
         student8.setAge(20);
         student8.setGender(Gender.MAN);
-        student7.setAverageRating(5);
+        student8.setAverageRating(5);
 
-        Student student9= new Student();
+        Student student9 = new Student();
         student9.setSurname("Ivanov");
         student9.setName("Oleg");
         student9.setAge(20);
         student9.setGender(Gender.MAN);
         student9.setAverageRating(2);
 
-        Student student10= new Student();
+        Student student10 = new Student();
         student10.setSurname("Sidorov");
         student10.setName("Pavel");
         student10.setAge(20);
         student10.setGender(Gender.MAN);
         student10.setAverageRating(4);
 
-        Student student11= new Student();
+        Student student11 = new Student();
         student11.setSurname("Smirnov");
         student11.setName("Saha");
         student11.setAge(20);
@@ -91,18 +91,19 @@ public class Main {
         System.out.println(group.addStudent(student1));
         System.out.println(group.addStudent(student2));
         System.out.println(group.addStudent(student3));
-        System.out.println( group.addStudent(student4));
+        System.out.println(group.addStudent(student4));
         System.out.println(group.addStudent(student5));
-        System.out.println( group.addStudent(student6));
-        System.out.println( group.addStudent(student7));
+        System.out.println(group.addStudent(student6));
+        System.out.println(group.addStudent(student7));
         System.out.println(group.addStudent(student8));
         System.out.println(group.addStudent(student9));
-        System.out.println( group.addStudent(student10));
-        System.out.println( group.addStudent(student11));
+        System.out.println(group.addStudent(student10));
+        System.out.println(group.addStudent(student11));
+
 
         System.out.println("*****************");
         System.out.println(group.toString());
-        System.out.println( group.removeStudent(student5));
+        System.out.println(group.removeStudent(student5));
         System.out.println("*****************");
         System.out.println(group.toString());
         System.out.println("*****************");
@@ -110,22 +111,22 @@ public class Main {
         System.out.println(group.searchStudentBySurname("Zolotareva"));
         System.out.println("*****************");
         System.out.println("*****************");
-      ArrayList <Student> students  =new ArrayList<Student>( group.getStudentList());
+        ArrayList<Student> students = new ArrayList<Student>(group.getStudentList());
 
-         Collections.sort(students,new ComparisonBySurname());
-        for (Student st:students) {
+        Collections.sort(students, new ComparisonBySurname());
+        for (Student st : students) {
             System.out.println(st.toString());
         }
         System.out.println();
         System.out.println("*****************");
-        Collections.sort(students,new SortBySurname());
-        for (Student st:students) {
+        Collections.sort(students, new SortBySurname());
+        for (Student st : students) {
             System.out.println(st.toString());
         }
         System.out.println();
         System.out.println("*****************");
-        Collections.sort(students,new SortByAverageRating());
-        for (Student st:students) {
+        Collections.sort(students, new SortByAverageRating());
+        for (Student st : students) {
             System.out.println(st.toString());
         }
         MilitaryCommissar militaryCommissar = new CommissarUniversity();
